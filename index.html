@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <style>
+        /* 간단한 CSS 스타일링 */
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiplication Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>구구단</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+            </tr>
+        </thead>
+        <tbody id="multiplicationTable">
+            <!-- 여기에 JavaScript로 구구단을 채웁니다 -->
+        </tbody>
+    </table>
+
+    <script>
+        // 구구단을 출력하는 함수
+        function printMultiplicationTable() {
+            let table = document.getElementById('multiplicationTable');
+            // 각 단마다 1부터 9까지의 곱셈 결과를 테이블에 추가
+            for (let i = 2; i <= 9; i++) {
+                let row = document.createElement('tr');
+                let rowData = `<td>${i}단</td>`;
+                for (let j = 1; j <= 9; j++) {
+                    rowData += `<td>${i} * ${j} = ${i * j}</td>`;
+                }
+                row.innerHTML = rowData;
+                table.appendChild(row);
+            }
+        }
+
+        // 페이지가 로드될 때 구구단을 출력
+        printMultiplicationTable();
+    </script>
+</body>
+</html>
